@@ -1,0 +1,34 @@
+service: serverless-open
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: '3'
+useDotenv: true # enable .env file support
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+        - lambda:InvokeAsync
+      Resource: "*"
+
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+  daisyChain:
+    handler: handler.daisyChain
+    events:
+      - http:
+          path: daisyChain
+          method: get
+
+plugins:
+  - serverless-offline

@@ -1,0 +1,17 @@
+{
+  "name": "serverless-native-open",
+  "version": "0.0.1",
+  "description": "Baby step learning serverless on native js",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Soon Huat, Phan",
+  "dependencies": {
+    "aws-sdk": "^2.1186.0",
+    "serverless-express": "^2.0.12"
+  },
+  "devDependencies": {
+    "serverless-offline": "^9.1.3"
+  }
+}
