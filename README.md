@@ -19,6 +19,7 @@ $ serverless offline
 ```
 
 The application will be available at `http://localhost:3000/dev/hello`.
+* this endpoint to chain lambda invocation to `http://localhost:3000/dev/daisyChain`
 
 ## Deployment the app
 

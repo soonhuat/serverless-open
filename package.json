@@ -4,6 +4,7 @@
   "description": "Baby step learning serverless on native js",
   "main": "handler.js",
   "scripts": {
+    "start": "sls offline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Soon Huat, Phan",
@@ -12,6 +13,7 @@
     "serverless-express": "^2.0.12"
   },
   "devDependencies": {
+    "serverless": "^3.21.0",
     "serverless-offline": "^9.1.3"
   }
 }

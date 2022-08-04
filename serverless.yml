@@ -15,7 +15,6 @@ provider:
         - lambda:InvokeAsync
       Resource: "*"
 
-
 functions:
   hello:
     handler: handler.hello
@@ -32,3 +31,5 @@ functions:
 
 plugins:
   - serverless-offline
+  - serverless-dotenv-plugin
+
