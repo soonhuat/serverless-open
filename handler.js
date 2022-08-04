@@ -30,3 +30,8 @@ module.exports.hello = async (event, context, callback) => {
 module.exports.daisyChain = (event, context, callback) => {
   callback(null, { message: 'dashing lamb chop' })
 };
+
+
+module.exports.eventBridgeEvent = async (event) => {
+  console.log(JSON.stringify(event, null, 2))
+};

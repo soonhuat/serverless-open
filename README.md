@@ -3,6 +3,7 @@
 ## Description
 
 * chaining lambda function :chains: daisy chain
+* eventBridge :curly_loop: trigger cloudTrail
 
 ## Installation
 

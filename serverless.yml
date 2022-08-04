@@ -28,7 +28,20 @@ functions:
       - http:
           path: daisyChain
           method: get
-
+  eventBridge:
+    handler: handler.eventBridgeEvent
+    events:
+      - eventBridge:
+          # leave the `eventBus` property empty to use the default AWS event bus
+          # the event bus will be create / removed if it's a name. It will be attached to the event bridge if it's an arn
+          pattern:
+            source:
+              - aws.cloudformation
+            detail-type:
+              - AWS API Call via CloudTrail
+            detail:
+              eventSource:
+                - cloudformation.amazonaws.com
 plugins:
   - serverless-offline
   - serverless-dotenv-plugin
