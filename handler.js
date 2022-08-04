@@ -35,3 +35,33 @@ module.exports.daisyChain = (event, context, callback) => {
 module.exports.eventBridgeEvent = async (event) => {
   console.log(JSON.stringify(event, null, 2))
 };
+
+module.exports.snsPublish = (event, context, callback) => {
+  let sns = new aws.SNS()
+
+  let opts = {
+    Message: JSON.stringify(event.body),
+    TopicArn: process.env.snsTopicArn,
+  };
+
+  sns.publish(opts, (err, data) => {
+    if (err) {
+      console.log('error while sending message over sns: ' + err)
+      callback(err, null)
+    } else {
+      const response = {
+        statusCode: 200,
+        body: 'message sent successfully'
+      }
+      callback(null, response)
+    }
+  })
+};
+
+module.exports.snsConsume = (event, context, callback) => {
+  const response = {
+    statusCode: 200,
+    body: event.Records[0].Sns.Message
+  }
+  callback(null, response)
+};

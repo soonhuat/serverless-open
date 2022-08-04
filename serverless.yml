@@ -13,6 +13,9 @@ provider:
       Action:
         - lambda:InvokeFunction
         - lambda:InvokeAsync
+        - logs:CreateLogGroup
+        - logs:CreateLogStream
+        - logs:PutLogEvents
       Resource: "*"
 
 functions:
@@ -42,6 +45,16 @@ functions:
             detail:
               eventSource:
                 - cloudformation.amazonaws.com
+  snsPublish:
+    handler: handler.snsPublish
+    environment:
+      snsTopicArn: ${self:custom.openSnsTopicArn}
+  snsConsume:
+    handler: handler.snsConsume
+    events:
+      - sns:
+          arn: ${self:custom.openSnsTopicArn}
+
 plugins:
   - serverless-offline
   - serverless-dotenv-plugin
