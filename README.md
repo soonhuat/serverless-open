@@ -5,6 +5,7 @@
 * chaining lambda function :chains: daisy chain
 * eventBridge :curly_loop: serverless event bus from cloudTrail event
 * lite event sourcing (PubSub) :love_letter: with simple notification service instead of kinesis
+
 ** serverless-pseudo-parameters is not needed because using serverless framework version >= 2.50
 
 ## Installation
